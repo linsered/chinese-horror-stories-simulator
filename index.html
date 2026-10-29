@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="中国恐怖怪谈模拟器 - 基于网络冰山图理论的沉浸式恐怖怪谈体验">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>中国恐怖怪谈模拟器</title>
+    <link rel="stylesheet" href="src/css/main.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/ui.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/scenes.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/animations.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/horror-effects.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/responsive.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/loading.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/main-menu.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/identity-select.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/game.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/collection.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/achievement.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/ending-archive.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/knowledge.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/screens/settings.css?v=1793272014727">
+    <link rel="stylesheet" href="src/css/themes/dark-horror.css?v=1793272014727">
+</head>
+<body class="theme-dark-horror">
+    <div id="game-container">
+        <div id="loading-screen" class="screen active">
+            <div class="loading-content">
+                <div class="loading-title">
+                    <span class="title-char">中</span>
+                    <span class="title-char">国</span>
+                    <span class="title-char">恐</span>
+                    <span class="title-char">怖</span>
+                    <span class="title-char">怪</span>
+                    <span class="title-char">谈</span>
+                    <span class="title-char">模</span>
+                    <span class="title-char">拟</span>
+                    <span class="title-char">器</span>
+                </div>
+                <div class="loading-subtitle">你所知道的 只是冰山一角</div>
+                <div class="loading-bar-container">
+                    <div class="loading-bar" id="loading-bar"></div>
+                </div>
+                <div class="loading-text" id="loading-text">正在初始化...</div>
+            </div>
+            <div class="loading-fog" id="loading-fog"></div>
+        </div>
+
+        <div id="main-menu" class="screen">
+            <div class="menu-background"></div>
+            <div class="menu-content">
+                <div class="menu-title">
+                    <h1>中国恐怖怪谈模拟器</h1>
+                    <p class="menu-subtitle">真相永远藏在水面之下</p>
+                </div>
+                <div class="menu-buttons">
+                    <button class="menu-btn primary" id="btn-new-game">开始新游戏</button>
+                    <button class="menu-btn" id="btn-continue" disabled>继续游戏</button>
+                    <button class="menu-btn" id="btn-collection">怪谈图鉴</button>
+                    <button class="menu-btn" id="btn-achievements">成就系统</button>
+                    <button class="menu-btn" id="btn-ending-archive">结局收录</button>
+                    <button class="menu-btn" id="btn-knowledge">怪谈知识库</button>
+                    <button class="menu-btn" id="btn-settings">系统设置</button>
+                </div>
+                <div class="menu-footer">
+                    <span>版本 1.0.0</span>
+                    <span>|</span>
+                    <span>基于网络冰山图理论</span>
+                </div>
+            </div>
+            <div class="menu-particles" id="menu-particles"></div>
+        </div>
+
+        <div id="protagonist-create" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="btn-back-from-protagonist">返回</button>
+                <h2>创建你的角色</h2>
+                <div class="header-spacer"></div>
+            </div>
+            <div class="protagonist-form" id="protagonist-form">
+                <div class="form-group">
+                    <label for="protagonist-name">姓名</label>
+                    <input type="text" id="protagonist-name" placeholder="输入你的姓名" maxlength="10">
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <div class="gender-select">
+                        <button class="gender-btn" data-gender="male">男</button>
+                        <button class="gender-btn" data-gender="female">女</button>
+                    </div>
+                </div>
+                <div class="protagonist-preview" id="protagonist-preview"></div>
+                <button class="confirm-btn" id="btn-confirm-protagonist">确认角色</button>
+            </div>
+        </div>
+
+        <div id="identity-select" class="screen">
+            <div class="screen-header">
+                <button class="back-btn" id="btn-back-from-identity">返回</button>
+                <h2>选择你的身份</h2>
+                <div class="header-spacer"></div>
+            </div>
+            <div class="identity-grid" id="identity-grid"></div>
+            <div class="identity-detail" id="identity-detail" style="display:none;">
+                <button class="back-btn" id="btn-back-to-grid" style="margin-bottom:12px;">← 返回选择</button>
+                <div class="detail-icon" id="detail-icon"></div>
+                <div class="detail-info">
+                    <h3 class="detail-name" id="detail-name"></h3>
+                    <p class="detail-title" id="detail-title"></p>
+                    <div class="detail-background" id="detail-background"></div>
+                    <div class="detail-abilities" id="detail-abilities"></div>
+                    <div class="detail-story-hint" id="detail-story-hint"></div>
+                    <button class="confirm-btn" id="btn-confirm-identity">确认选择</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="game-header" id="game-header">
+                <div class="header-left">
+                    <button class="icon-btn" id="btn-menu" title="菜单">☰</button>
+                    <span class="chapter-info" id="chapter-info">序章</span>
+                </div>
+                <div class="header-center">
+                    <span class="scene-name" id="scene-name">未知之地</span>
+                </div>
+                <div class="header-right">
+                    <button class="icon-btn" id="btn-save" title="存档">💾</button>
+                    <button class="icon-btn" id="btn-auto" title="自动播放">▶</button>
+                    <button class="icon-btn" id="btn-log" title="对话记录">📜</button>
+                </div>
+            </div>
+
+            <div class="game-main">
+                <div class="scene-container" id="scene-container">
+                    <div class="scene-background" id="scene-background"></div>
+                    <div class="scene-characters" id="scene-characters"></div>
+                    <div class="scene-effects" id="scene-effects"></div>
+                    <div class="scene-fog" id="scene-fog"></div>
+                </div>
+
+                <div class="dialogue-container" id="dialogue-container">
+                    <div class="speaker-name" id="speaker-name"></div>
+                    <div class="dialogue-text" id="dialogue-text"></div>
+                    <div class="dialogue-indicator" id="dialogue-indicator">▼</div>
+                </div>
+
+                <div class="choices-container" id="choices-container" style="display:none;"></div>
+            </div>
+
+            <div class="game-footer" id="game-footer">
+                <div class="status-bar">
+                    <div class="status-item" id="status-sanity">
+                        <span class="status-label">理智</span>
+                        <span class="status-value" id="sanity-value">100</span>
+                    </div>
+                    <div class="status-item" id="status-fear">
+                        <span class="status-label">恐惧</span>
+                        <span class="status-value" id="fear-value">0</span>
+                    </div>
+                    <div class="status-item" id="status-knowledge">
+                        <span class="status-label">认知</span>
+                        <span class="status-value" id="knowledge-value">0</span>
+                    </div>
+                    <div class="status-item" id="status-time">
+                        <span class="status-label">时间</span>
+                        <span class="status-value" id="time-value">深夜</span>
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <button class="quick-btn" id="btn-protagonist-info" title="角色信息">👤</button>
+                    <button class="quick-btn" id="btn-collection-panel" title="怪谈图鉴">📖</button>
+                    <button class="quick-btn" id="btn-achievement-panel" title="成就">🏆</button>
+                    <button class="quick-btn" id="btn-knowledge-panel" title="知识库">📚</button>
+                </div>
+            </div>
+
+            <div class="ghost-event-popup" id="ghost-event-popup" style="display:none;">
+                <div class="ghost-event-content">
+                    <div class="ghost-event-header" id="ghost-event-header"></div>
+                    <div class="ghost-event-text" id="ghost-event-text"></div>
+                    <div class="ghost-event-choices" id="ghost-event-choices"></div>
+                </div>
+            </div>
+
+            <div class="ending-popup" id="ending-popup" style="display:none;">
+                <div class="ending-content">
+                    <div class="ending-type" id="ending-type"></div>
+                    <h2 class="ending-title" id="ending-title"></h2>
+                    <div class="ending-text" id="ending-text"></div>
+                    <div class="ending-stats" id="ending-stats"></div>
+                    <button class="menu-btn" id="btn-ending-back">返回主菜单</button>
+                </div>
+            </div>
+
+            <div class="achievement-popup" id="achievement-popup" style="display:none;">
+                <div class="achievement-content">
+                    <div class="achievement-icon" id="achievement-icon"></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name" id="achievement-name"></div>
+                        <div class="achievement-desc" id="achievement-desc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="side-panel" class="side-panel" style="display:none;">
+            <div class="panel-header">
+                <h3 id="panel-title">面板</h3>
+                <button class="close-btn" id="btn-close-panel">✕</button>
+            </div>
+            <div class="panel-content" id="panel-content"></div>
+        </div>
+
+        <div id="collection-screen" class="screen overlay-screen" style="display:none;">
+            <div class="collection-content">
+                <div class="screen-header">
+                    <button class="back-btn" id="btn-back-from-collection">返回</button>
+                    <h2>怪谈收集图鉴</h2>
+                    <div class="header-spacer"></div>
+                </div>
+                <div class="collection-stats" id="collection-stats"></div>
+                <div class="collection-filter" id="collection-filter"></div>
+                <div class="collection-grid" id="collection-grid"></div>
+                <div class="collection-detail" id="collection-detail" style="display:none;"></div>
+            </div>
+        </div>
+
+        <div id="achievement-screen" class="screen overlay-screen" style="display:none;">
+            <div class="achievement-screen-content">
+                <div class="screen-header">
+                    <button class="back-btn" id="btn-back-from-achievements">返回</button>
+                    <h2>成就系统</h2>
+                    <div class="header-spacer"></div>
+                </div>
+                <div class="achievement-progress" id="achievement-progress"></div>
+                <div class="achievement-grid" id="achievement-grid"></div>
+            </div>
+        </div>
+
+        <div id="ending-archive-screen" class="screen overlay-screen" style="display:none;">
+            <div class="ending-archive-content">
+                <div class="screen-header">
+                    <button class="back-btn" id="btn-back-from-ending-archive">返回</button>
+                    <h2>结局收录</h2>
+                    <div class="header-spacer"></div>
+                </div>
+                <div class="ending-tree" id="ending-tree"></div>
+                <div class="ending-list" id="ending-list"></div>
+            </div>
+        </div>
+
+        <div id="knowledge-screen" class="screen overlay-screen" style="display:none;">
+            <div class="knowledge-content">
+                <div class="screen-header">
+                    <button class="back-btn" id="btn-back-from-knowledge">返回</button>
+                    <h2>怪谈知识库</h2>
+                    <div class="header-spacer"></div>
+                </div>
+                <div class="knowledge-search" id="knowledge-search">
+                    <input type="text" id="knowledge-search-input" placeholder="搜索怪谈知识...">
+                </div>
+                <div class="knowledge-categories" id="knowledge-categories"></div>
+                <div class="knowledge-entries" id="knowledge-entries"></div>
+            </div>
+        </div>
+
+        <div id="settings-screen" class="screen overlay-screen" style="display:none;">
+            <div class="settings-content">
+                <h2>系统设置</h2>
+                <div class="setting-group">
+                    <label>背景音乐</label>
+                    <input type="range" id="setting-bgm-volume" min="0" max="100" value="60">
+                    <span id="bgm-volume-value">60</span>
+                </div>
+                <div class="setting-group">
+                    <label>音效音量</label>
+                    <input type="range" id="setting-sfx-volume" min="0" max="100" value="80">
+                    <span id="sfx-volume-value">80</span>
+                </div>
+                <div class="setting-group">
+                    <label>环境音效</label>
+                    <input type="range" id="setting-ambient-volume" min="0" max="100" value="50">
+                    <span id="ambient-volume-value">50</span>
+                </div>
+                <div class="setting-group">
+                    <label>文字速度</label>
+                    <input type="range" id="setting-text-speed" min="1" max="5" value="3">
+                    <span id="text-speed-value">3</span>
+                </div>
+                <div class="setting-group">
+                    <label>自动播放速度</label>
+                    <input type="range" id="setting-auto-speed" min="1" max="5" value="3">
+                    <span id="auto-speed-value">3</span>
+                </div>
+                <div class="setting-group">
+                    <label>文字大小</label>
+                    <select id="setting-font-size">
+                        <option value="small">小</option>
+                        <option value="medium" selected>中</option>
+                        <option value="large">大</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>恐怖特效</label>
+                    <button class="toggle-btn" id="btn-horror-effects">开启</button>
+                </div>
+                <div class="setting-group">
+                    <label>全屏模式</label>
+                    <button class="toggle-btn" id="btn-fullscreen">关闭</button>
+                </div>
+                <div class="setting-actions">
+                    <button class="menu-btn" id="btn-back-from-settings">返回</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="save-screen" class="screen overlay-screen" style="display:none;">
+            <div class="save-content">
+                <h2>存档管理</h2>
+                <div class="save-tabs">
+                    <button class="tab-btn active" id="tab-save">存档</button>
+                    <button class="tab-btn" id="tab-load">读档</button>
+                </div>
+                <div class="save-slots" id="save-slots"></div>
+                <button class="menu-btn" id="btn-back-from-save">返回</button>
+            </div>
+        </div>
+
+        <div id="dialog-log" class="screen overlay-screen" style="display:none;">
+            <div class="log-content">
+                <h2>对话记录</h2>
+                <div class="log-entries" id="log-entries"></div>
+                <button class="menu-btn" id="btn-back-from-log">返回</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/core/logger.js?v=1793272014727"></script>
+    <script src="src/js/core/error-handler.js?v=1793272014727"></script>
+    <script src="src/js/core/event-bus.js?v=1793272014727"></script>
+    <script src="src/js/core/state.js?v=1793272014727"></script>
+    <script src="src/js/core/storage.js?v=1793272014727"></script>
+    <script src="src/js/core/loader.js?v=1793272014727"></script>
+    <script src="src/js/core/engine.js?v=1793272014727"></script>
+    <script src="src/js/data/scenes.js?v=1793272014727"></script>
+    <script src="src/js/data/identities.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/chapter-01.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/chapter-02.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/chapter-03.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/chapter-04.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/chapter-05.js?v=1793272014727"></script>
+    <script src="src/js/data/stories/daily-life.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/urban-legends.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/campus-horror.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/network-horror.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/true-crimes.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/folklore.js?v=1793272014727"></script>
+    <script src="src/js/data/ghost-events/comfort-events.js?v=1793272014727"></script>
+    <script src="src/js/data/endings.js?v=1793272014727"></script>
+    <script src="src/js/data/achievements.js?v=1793272014727"></script>
+    <script src="src/js/data/knowledge-base.js?v=1793272014727"></script>
+    <script src="src/js/systems/audio.js?v=1793272014727"></script>
+    <script src="src/js/systems/animation.js?v=1793272014727"></script>
+    <script src="src/js/systems/cinematic.js?v=1793272014727"></script>
+    <script src="src/js/systems/narrative.js?v=1793272014727"></script>
+    <script src="src/js/systems/protagonist.js?v=1793272014727"></script>
+    <script src="src/js/systems/identity.js?v=1793272014727"></script>
+    <script src="src/js/systems/story.js?v=1793272014727"></script>
+    <script src="src/js/systems/ghost-event.js?v=1793272014727"></script>
+    <script src="src/js/systems/ending.js?v=1793272014727"></script>
+    <script src="src/js/systems/collection.js?v=1793272014727"></script>
+    <script src="src/js/systems/achievement.js?v=1793272014727"></script>
+    <script src="src/js/systems/ending-archive.js?v=1793272014727"></script>
+    <script src="src/js/systems/knowledge.js?v=1793272014727"></script>
+    <script src="src/js/ui/components.js?v=1793272014727"></script>
+    <script src="src/js/ui/screens.js?v=1793272014727"></script>
+    <script src="src/js/ui/typewriter.js?v=1793272014727"></script>
+    <script src="src/js/ui/choices.js?v=1793272014727"></script>
+    <script src="src/js/ui/modal.js?v=1793272014727"></script>
+    <script src="src/js/app.js?v=1793272014727"></script>
+</body>
+</html>

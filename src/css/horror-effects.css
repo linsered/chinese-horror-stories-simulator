@@ -1,0 +1,152 @@
+.horror-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.horror-flash {
+    background: rgba(139, 0, 0, 0.3);
+    animation: horrorFlash 0.5s ease;
+}
+
+@keyframes horrorFlash {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    40% { opacity: 0; }
+    60% { opacity: 0.8; }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.jump-scare {
+    background: #000000;
+    animation: jumpScare 0.3s ease;
+}
+
+@keyframes jumpScare {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.screen-shake {
+    animation: screenShake 0.6s ease;
+}
+
+@keyframes screenShake {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5px, -3px); }
+    20% { transform: translate(5px, 3px); }
+    30% { transform: translate(-3px, 5px); }
+    40% { transform: translate(3px, -5px); }
+    50% { transform: translate(-5px, 3px); }
+    60% { transform: translate(5px, -3px); }
+    70% { transform: translate(-3px, -5px); }
+    80% { transform: translate(3px, 5px); }
+    90% { transform: translate(-5px, -3px); }
+}
+
+.glitch-effect {
+    animation: glitch 0.8s ease;
+}
+
+@keyframes glitch {
+    0% { opacity: 0; }
+    5% { opacity: 1; background: rgba(255, 0, 0, 0.1); }
+    10% { opacity: 0; transform: translate(2px, 0); }
+    15% { opacity: 1; background: rgba(0, 255, 0, 0.05); }
+    20% { opacity: 0; transform: translate(-2px, 0); }
+    30% { opacity: 0.5; background: rgba(0, 0, 255, 0.05); transform: skewX(2deg); }
+    40% { opacity: 0; transform: none; }
+    50% { opacity: 0.3; background: rgba(255, 0, 0, 0.05); }
+    60% { opacity: 0; }
+    70% { opacity: 0.2; transform: translate(1px, 0); }
+    80% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+.fog-dense {
+    background: radial-gradient(ellipse at center, transparent 20%, rgba(50, 50, 50, 0.6) 100%);
+    animation: fogDense 3s ease forwards;
+}
+
+@keyframes fogDense {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blood-drip {
+    background: linear-gradient(180deg, transparent 0%, rgba(139, 0, 0, 0.2) 100%);
+    animation: bloodDrip 2s ease forwards;
+}
+
+@keyframes bloodDrip {
+    0% { opacity: 0; transform: translateY(-100%); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(0); }
+}
+
+.static-noise {
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    animation: staticNoise 1.5s ease;
+}
+
+@keyframes staticNoise {
+    0% { opacity: 0; }
+    20% { opacity: 0.5; }
+    40% { opacity: 0.2; }
+    60% { opacity: 0.6; }
+    80% { opacity: 0.1; }
+    100% { opacity: 0; }
+}
+
+.heartbeat-pulse {
+    animation: heartbeatPulse 2s ease;
+}
+
+@keyframes heartbeatPulse {
+    0% { box-shadow: inset 0 0 0 0 rgba(139, 0, 0, 0); }
+    15% { box-shadow: inset 0 0 50px 0 rgba(139, 0, 0, 0.3); }
+    30% { box-shadow: inset 0 0 0 0 rgba(139, 0, 0, 0); }
+    45% { box-shadow: inset 0 0 30px 0 rgba(139, 0, 0, 0.2); }
+    60% { box-shadow: inset 0 0 0 0 rgba(139, 0, 0, 0); }
+    100% { box-shadow: inset 0 0 0 0 rgba(139, 0, 0, 0); }
+}
+
+.whisper-text {
+    animation: whisperText 3s ease;
+}
+
+@keyframes whisperText {
+    0% { opacity: 0; }
+    30% { opacity: 0.1; background: rgba(100, 100, 150, 0.05); }
+    50% { opacity: 0.15; }
+    70% { opacity: 0.05; }
+    100% { opacity: 0; }
+}
+
+.darkness-encroach {
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+    animation: darknessEncroach 5s ease forwards;
+}
+
+@keyframes darknessEncroach {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.horror-effects-disabled .horror-effect,
+.horror-effects-disabled .scene-particle.shadow,
+.horror-effects-disabled .scene-fog {
+    display: none !important;
+}

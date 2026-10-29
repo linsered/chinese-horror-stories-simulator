@@ -1,0 +1,30 @@
+{
+  "name": "chinese-horror-stories-simulator",
+  "version": "1.0.0",
+  "description": "中国恐怖怪谈模拟器 - 基于网络冰山图理论的沉浸式恐怖怪谈网页游戏",
+  "main": "index.html",
+  "scripts": {
+    "lint": "eslint src/js/**/*.js",
+    "lint:css": "stylelint src/css/**/*.css",
+    "serve": "npx http-server . -p 8080 -c-1",
+    "validate": "npm run lint && npm run lint:css"
+  },
+  "keywords": [
+    "horror",
+    "visual-novel",
+    "chinese-folklore",
+    "ghost-stories",
+    "web-game"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "http-server": "^14.1.1",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

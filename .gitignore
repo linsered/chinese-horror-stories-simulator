@@ -1,0 +1,19 @@
+# 构建产物 / 重复副本
+/dist/
+
+# 内部工具与资源
+/.skill/
+
+# 本地调试页面
+/debug-test.html
+/debug-test2.html
+/debug-test3.html
+
+# 依赖
+/node_modules/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

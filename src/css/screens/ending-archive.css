@@ -1,0 +1,116 @@
+.tree-legend {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px;
+    justify-content: center;
+}
+
+.tree-legend > * + * {
+    margin-left: 8px;
+}
+
+.legend-item {
+    font-size: 0.75em;
+    padding: 4px 10px;
+    border-radius: var(--radius-small);
+    color: var(--color-text);
+}
+
+.legend-item.short-bad { background: #4a0000; }
+.legend-item.short-neutral { background: #3a3a00; }
+.legend-item.long-bad { background: #2a0000; }
+.legend-item.long-neutral { background: #2a2a00; }
+.legend-item.long-good { background: #002a00; }
+.legend-item.hidden { background: #1a0030; }
+.legend-item.true-ending { background: #303000; }
+
+.tree-stats {
+    text-align: center;
+    padding: 8px;
+    color: var(--color-text-dim);
+}
+
+.ending-section {
+    margin-bottom: 24px;
+}
+
+.section-title {
+    font-family: var(--font-main);
+    color: var(--color-accent-light);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--color-bg-tertiary);
+    margin-bottom: 12px;
+}
+
+.ending-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    padding: 12px;
+    margin: 6px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--radius-small);
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+.ending-card.unlocked {
+    cursor: pointer;
+}
+
+.ending-card.unlocked:hover {
+    border-color: var(--color-accent);
+}
+
+.ending-card.locked {
+    opacity: 0.4;
+}
+
+.ending-icon {
+    font-size: 1.8em;
+    margin-bottom: 4px;
+}
+
+.ending-name {
+    font-size: 0.8em;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.ending-condition {
+    font-size: 0.7em;
+    color: var(--color-text-dim);
+}
+
+.type-short_bad .section-title { color: var(--color-danger); }
+.type-long_good .section-title { color: var(--color-success); }
+.type-hidden .section-title { color: var(--color-identity); }
+.type-true .section-title { color: var(--color-knowledge); }
+
+.ending-detail {
+    text-align: center;
+}
+
+.ending-detail-icon {
+    font-size: 3em;
+    margin-bottom: 8px;
+}
+
+.ending-detail-type {
+    color: var(--color-text-dim);
+    font-size: 0.85em;
+    margin-bottom: 12px;
+}
+
+.ending-detail-desc {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.ending-detail-hint {
+    color: var(--color-accent-light);
+    font-size: 0.85em;
+}

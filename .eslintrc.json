@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "GT": "writable"
+  },
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": ["warn", { "args": "none" }],
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-dupe-keys": "error",
+    "no-duplicate-case": "error",
+    "no-empty": "error",
+    "no-extra-semi": "error",
+    "no-unreachable": "error",
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "always"],
+    "no-var": "off",
+    "semi": ["error", "always"],
+    "no-trailing-spaces": "error",
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "comma-dangle": ["error", "never"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "indent": ["error", 4, { "SwitchCase": 1 }]
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020
+  }
+}

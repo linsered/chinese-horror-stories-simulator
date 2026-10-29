@@ -1,0 +1,38 @@
+.theme-dark-horror {
+    --color-bg: #0a0a0a;
+    --color-bg-secondary: #141414;
+    --color-bg-tertiary: #222222;
+    --color-text: #c8c8c8;
+    --color-text-dim: #666666;
+    --color-text-bright: #e8e8e8;
+    --color-accent: #8b0000;
+    --color-accent-light: #cc2222;
+    --color-accent-glow: rgba(139, 0, 0, 0.3);
+}
+
+.theme-dark-horror .dialogue-container {
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.theme-dark-horror .menu-title h1 {
+    text-shadow: 0 0 30px rgba(139, 0, 0, 0.5), 0 0 60px rgba(139, 0, 0, 0.2);
+}
+
+.theme-dark-horror #game-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+}

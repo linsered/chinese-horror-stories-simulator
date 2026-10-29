@@ -1,0 +1,17 @@
+.settings-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.settings-content h2 {
+    font-family: var(--font-main);
+    color: var(--color-text-bright);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.setting-actions {
+    margin-top: 20px;
+    text-align: center;
+}

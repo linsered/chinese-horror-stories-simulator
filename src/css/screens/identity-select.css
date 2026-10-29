@@ -1,0 +1,229 @@
+#protagonist-create {
+    background: var(--color-bg);
+}
+
+.protagonist-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--color-text-dim);
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--radius-small);
+    color: var(--color-text);
+}
+
+.form-group input[type="text"]:focus {
+    border-color: var(--color-accent);
+}
+
+.gender-select {
+    display: flex;
+}
+
+.gender-select > * + * {
+    margin-left: 12px;
+}
+
+.gender-btn {
+    flex: 1;
+    padding: 12px;
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    border: 2px solid var(--color-bg-tertiary);
+    border-radius: var(--radius-small);
+    font-size: 1em;
+}
+
+.gender-btn.selected {
+    border-color: var(--color-accent);
+    background: rgba(139, 0, 0, 0.2);
+    color: var(--color-text-bright);
+}
+
+.gender-btn:hover {
+    border-color: var(--color-accent-light);
+}
+
+.protagonist-preview {
+    margin: 20px 0;
+}
+
+.preview-card {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-tertiary);
+    border-radius: var(--radius-normal);
+    padding: 20px;
+    text-align: center;
+}
+
+.preview-icon {
+    font-size: 3em;
+    margin-bottom: 8px;
+}
+
+.preview-name {
+    font-family: var(--font-main);
+    font-size: 1.3em;
+    color: var(--color-text-bright);
+    margin-bottom: 4px;
+}
+
+.preview-gender {
+    color: var(--color-text-dim);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.preview-desc {
+    color: var(--color-text-dim);
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+#identity-select {
+    background: var(--color-bg);
+    overflow-y: auto;
+}
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    grid-gap: 12px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.identity-card {
+    background: var(--color-bg-secondary);
+    border: 2px solid var(--color-bg-tertiary);
+    border-radius: var(--radius-normal);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.identity-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.identity-card.selected {
+    border-color: var(--color-accent);
+    background: rgba(139, 0, 0, 0.15);
+}
+
+.identity-icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+.identity-name {
+    font-weight: bold;
+    color: var(--color-text-bright);
+    margin-bottom: 4px;
+}
+
+.identity-title {
+    font-size: 0.8em;
+    color: var(--color-text-dim);
+}
+
+.identity-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-normal);
+}
+
+.detail-icon {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.detail-name {
+    font-family: var(--font-main);
+    font-size: 1.4em;
+    color: var(--color-text-bright);
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.detail-title {
+    color: var(--color-accent-light);
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.detail-background {
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: var(--color-bg);
+    border-radius: var(--radius-small);
+    border-left: 3px solid var(--color-accent);
+}
+
+.detail-abilities {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.detail-abilities > * + * {
+    margin-left: 16px;
+}
+
+.ability-item {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    background: var(--color-bg);
+    border-radius: var(--radius-small);
+}
+
+.ability-item span:first-child {
+    display: block;
+    color: var(--color-text-dim);
+    font-size: 0.8em;
+    margin-bottom: 4px;
+}
+
+.ability-item span:last-child {
+    color: var(--color-accent-light);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.story-hint-title {
+    color: var(--color-identity);
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.story-hint-text {
+    color: var(--color-text-dim);
+    font-style: italic;
+    line-height: 1.6;
+}
