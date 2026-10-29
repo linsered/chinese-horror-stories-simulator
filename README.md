@@ -3,14 +3,14 @@
 > 基于「网络冰山图」理论的沉浸式中文恐怖怪谈文字冒险网页游戏。
 > 你所知道的，只是冰山一角。
 
-[![Play](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E8%AF%95%E7%8E%A9-Play%20Now-8B0000?style=for-the-badge)](https://YOUR_USERNAME.github.io/chinese-horror-stories-simulator/)
+[![Play](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E8%AF%95%E7%8E%A9-Play%20Now-8B0000?style=for-the-badge)](https://linsered.github.io/chinese-horror-stories-simulator/)
 
 ## 🎮 在线游玩
 
 部署完成后，直接打开：
 
 ```
-https://YOUR_USERNAME.github.io/chinese-horror-stories-simulator/
+https://linsered.github.io/chinese-horror-stories-simulator/
 ```
 
 > 纯前端静态网页游戏，无需下载安装，打开即玩。
